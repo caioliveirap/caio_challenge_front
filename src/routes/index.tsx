@@ -1,4 +1,5 @@
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
+import { Sidenav } from '../components/Sidenav';
 
 const settedRoutes = createBrowserRouter([
 	{
@@ -8,5 +9,10 @@ const settedRoutes = createBrowserRouter([
 ]);
 
 export const ProjectRoutes = () => {
-	return <RouterProvider router={settedRoutes} />;
+	return (
+		<>
+			<Sidenav />
+			<RouterProvider router={settedRoutes} />
+		</>
+	);
 };
