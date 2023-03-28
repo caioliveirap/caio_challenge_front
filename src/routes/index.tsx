@@ -8,5 +8,9 @@ const settedRoutes = createBrowserRouter([
 ]);
 
 export const ProjectRoutes = () => {
-	return <RouterProvider router={settedRoutes} />;
+	return (
+		<>
+			<RouterProvider router={settedRoutes} />
+		</>
+	);
 };
