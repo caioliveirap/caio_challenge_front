@@ -20,9 +20,9 @@ function App() {
 							setCollapsed(!isSidenavCollapsed);
 						}}
 					/>
+					<ProjectRoutes />
 				</Layout>
 			</Layout>
-			{/* <ProjectRoutes /> */}
 		</ConfigProvider>
 	);
 }
