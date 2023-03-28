@@ -1,0 +1,12 @@
+.sidenav-logo {
+	display: flex;
+	width: 100%;
+	align-items: center;
+	justify-content: center;
+	padding: 16px;
+	.logo {
+		&.collapsed {
+			visibility: hidden;
+		}
+	}
+}

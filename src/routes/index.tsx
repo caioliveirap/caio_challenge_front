@@ -1,5 +1,5 @@
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
-import { Sidenav } from '../components/Sidenav';
+import { Sidenav } from '../components/Sidenav/Sidenav';
 
 const settedRoutes = createBrowserRouter([
 	{
