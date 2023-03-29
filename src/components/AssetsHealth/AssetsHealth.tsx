@@ -11,12 +11,12 @@ type AssetsHealthProps = {
 
 export const AssetsHealthComponent = ({ assetsList }: AssetsHealthProps) => {
 	const [assets, setAssets] = useState(assetsList);
-	console.log(assetsList);
 
 	const options = {
 		title: null,
 		chart: {
 			type: 'column',
+			height: '300px',
 		},
 		plotOptions: {
 			column: {
