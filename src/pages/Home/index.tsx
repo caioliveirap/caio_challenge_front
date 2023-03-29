@@ -1,4 +1,5 @@
 import { Card } from 'antd';
+
 import './home.scss';
 
 export const Home = () => {
