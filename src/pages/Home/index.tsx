@@ -1,15 +1,20 @@
 import { Card } from 'antd';
+import { useQuery } from 'react-query';
 
+import { AssetsHealthComponent } from '../../components/AssetsHealth/AssetsHealth';
+import { getAllAssets } from '../../services/assets/assets.service';
 import './home.scss';
 
 export const Home = () => {
+	const { isLoading, data } = useQuery('assetsData', async () => {
+		const result = await getAllAssets();
+		return result;
+	});
+
 	return (
 		<div className="homepage">
-			<Card>
-				<div className="card__content">
-					<span>teste</span>
-					<span>teste</span>
-				</div>
+			<Card loading={isLoading}>
+				<AssetsHealthComponent assetsList={data} />
 			</Card>
 		</div>
 	);

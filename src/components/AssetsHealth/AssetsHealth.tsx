@@ -1,7 +1,63 @@
-import './Header.scss';
+import Highcharts from 'highcharts';
+import HighchartsReact from 'highcharts-react-official';
+import { useState } from 'react';
 
-type AssetsHealthProps = {};
+import { IAssets } from '../../services/assets/assets.service';
+import './AssetsHealth.scss';
 
-export const AssetsHealthComponent = () => {
-	return <div className="assets-health"></div>;
+type AssetsHealthProps = {
+	assetsList: IAssets[] | undefined;
+};
+
+export const AssetsHealthComponent = ({ assetsList }: AssetsHealthProps) => {
+	const [assets, setAssets] = useState(assetsList);
+	console.log(assetsList);
+
+	const options = {
+		title: null,
+		chart: {
+			type: 'column',
+		},
+		plotOptions: {
+			column: {
+				colorByPoint: true,
+			},
+		},
+		yAxis: {
+			title: {
+				text: 'Saúde do ativo',
+			},
+			min: 0,
+			max: 100,
+		},
+		series: [
+			{
+				showInLegend: false,
+				name: 'Saúde do ativo',
+				data: assets?.map((item) => {
+					return item.healthscore;
+				}),
+			},
+		],
+		xAxis: {
+			categories: assets?.map((item) => {
+				return item.name;
+			}),
+		},
+	};
+
+	return (
+		<div className="assets-health">
+			<span className="assets-health__title">
+				Gráfico de saúde atual dos ativos
+			</span>
+			<div className="assets-health__chart">
+				<HighchartsReact
+					highcharts={Highcharts}
+					options={options}
+					containerProps={{ style: { width: '100%' } }}
+				/>
+			</div>
+		</div>
+	);
 };
