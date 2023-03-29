@@ -1,0 +1,9 @@
+.loading__container {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	position: absolute;
+	top: 50%;
+	left: 55%;
+	transform: scale(2);
+}

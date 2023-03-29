@@ -1,7 +1,10 @@
 import { Layout, Menu } from 'antd';
 import { AiOutlineUser } from 'react-icons/ai';
+import { Link, useNavigate } from 'react-router-dom';
+
 import TractianLogo from '../../assets/tractian-logo.svg';
 import './Sidenav.scss';
+
 const { Sider } = Layout;
 
 type SidenavProps = {
@@ -9,11 +12,19 @@ type SidenavProps = {
 };
 
 export const Sidenav = ({ collapsed }: SidenavProps) => {
+	const navigate = useNavigate();
 	const sidenavItems = [
 		{
-			key: '1',
+			key: '/',
 			icon: <AiOutlineUser />,
-			label: 'User',
+			label: 'Resumo',
+			path: '/',
+		},
+		{
+			key: '/ativos',
+			icon: <AiOutlineUser />,
+			label: 'Ativos',
+			path: '/ativos',
 		},
 	];
 	return (
@@ -29,9 +40,24 @@ export const Sidenav = ({ collapsed }: SidenavProps) => {
 			<Menu
 				theme="dark"
 				mode="inline"
-				defaultSelectedKeys={['1']}
 				items={sidenavItems}
+				onClick={({ key }) => {
+					navigate(key);
+				}}
 			/>
+
+			{/* <Menu theme="dark" mode="inline">
+				{sidenavItems.map((item) => {
+					return (
+						<Menu.Item>
+							{item.icon}
+							{item.label}
+
+							<Link className="sidenav-link" to={item.path}></Link>
+						</Menu.Item>
+					);
+				})}
+			</Menu> */}
 		</Sider>
 	);
 };

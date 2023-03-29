@@ -60,6 +60,9 @@ export const AssetsStatusComponent = ({ assetsList }: AssetsStatusProps) => {
 		],
 	};
 
+	console.log(assets);
+	console.log(pieChartData);
+
 	return (
 		<div className="assets-health">
 			<span className="assets-health__title">

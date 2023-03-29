@@ -1,9 +1,10 @@
 import { Card } from 'antd';
 import { useQuery } from 'react-query';
+import { AssetsHealthComponent } from 'src/components/AssetsHealth/AssetsHealth';
+import { AssetsStatusComponent } from 'src/components/AssetsStatus/AssetsStatus';
+import { Loading } from 'src/components/LoadingComponent/Loading';
+import { getAllAssets } from 'src/services/assets/assets.service';
 
-import { AssetsHealthComponent } from '../../components/AssetsHealth/AssetsHealth';
-import { AssetsStatusComponent } from '../../components/AssetsStatus/AssetsStatus';
-import { getAllAssets } from '../../services/assets/assets.service';
 import './home.scss';
 
 export const Home = () => {
@@ -11,6 +12,8 @@ export const Home = () => {
 		const result = await getAllAssets();
 		return result;
 	});
+
+	if (isLoading) return <Loading />;
 
 	return (
 		<div className="homepage">
