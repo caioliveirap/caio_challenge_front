@@ -1,7 +1,7 @@
 import { Button, Card } from 'antd';
 import { AiOutlineArrowLeft } from 'react-icons/ai';
 import { useQuery } from 'react-query';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, useParams } from 'react-router-dom';
 import { AssetInfoComponent } from 'src/components/AssetInfo/AssetInfo';
 import { Loading } from 'src/components/LoadingComponent/Loading';
 import { getSingleAsset } from 'src/services/assets/assets.service';
@@ -10,8 +10,10 @@ import '../ativos.scss';
 
 export const AssetDetail = () => {
 	const navigate = useNavigate();
-	const { isLoading, data } = useQuery('', async () => {
-		const result = await getSingleAsset(1);
+	const params = useParams();
+
+	const { isLoading, data } = useQuery(['assetDetail', params.id], async () => {
+		const result = await getSingleAsset(Number(params.id));
 		return result;
 	});
 

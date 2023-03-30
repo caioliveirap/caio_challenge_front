@@ -1,5 +1,11 @@
 import { Layout, Menu } from 'antd';
-import { AiOutlineUser } from 'react-icons/ai';
+import {
+	AiOutlineBank,
+	AiOutlineLayout,
+	AiOutlineSetting,
+	AiOutlineUnorderedList,
+	AiOutlineUser,
+} from 'react-icons/ai';
 import { Link, useNavigate } from 'react-router-dom';
 
 import TractianLogo from '../../assets/tractian-logo.svg';
@@ -16,19 +22,19 @@ export const Sidenav = ({ collapsed }: SidenavProps) => {
 	const sidenavItems = [
 		{
 			key: '/',
-			icon: <AiOutlineUser />,
-			label: 'Resumo',
+			icon: <AiOutlineLayout />,
+			label: 'Dashboard',
 			path: '/',
 		},
 		{
 			key: '/ativos',
-			icon: <AiOutlineUser />,
+			icon: <AiOutlineSetting />,
 			label: 'Ativos',
 			path: '/ativos',
 		},
 		{
 			key: '/ordem-de-servico',
-			icon: <AiOutlineUser />,
+			icon: <AiOutlineUnorderedList />,
 			label: 'Ordens de serviço',
 			path: 'ordem-de-servico',
 		},
@@ -40,7 +46,7 @@ export const Sidenav = ({ collapsed }: SidenavProps) => {
 		},
 		{
 			key: '/unidades',
-			icon: <AiOutlineUser />,
+			icon: <AiOutlineBank />,
 			label: 'Unidades',
 			path: 'unidades',
 		},
