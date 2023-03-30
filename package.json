@@ -8,11 +8,13 @@
 		"preview": "vite preview",
 		"lint": "eslint . --fix --max-warnings=0",
 		"format": "prettier . --write",
-		"prepare": "husky install"
+		"prepare": "husky install",
+		"cypress": "NODE_ENV=test cypress open"
 	},
 	"dependencies": {
 		"@commitlint/cli": "^17.5.0",
 		"@commitlint/config-conventional": "^17.4.4",
+		"@cypress/vite-dev-server": "^5.0.5",
 		"@eslint/create-config": "0.4.2",
 		"@typescript-eslint/eslint-plugin": "^5.57.0",
 		"@typescript-eslint/parser": "^5.57.0",

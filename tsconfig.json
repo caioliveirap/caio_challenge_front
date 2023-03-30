@@ -16,6 +16,7 @@
 		"isolatedModules": true,
 		"noEmit": true,
 		"jsx": "react-jsx",
+		"types": ["cypress", "node"],
 		"paths": {
 			"src/*": ["./src/*"],
 			"components/*": ["./src/components/*"]
