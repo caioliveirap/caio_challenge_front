@@ -1,5 +1,3 @@
-import { AxiosRequestConfig } from 'axios';
-
 import api from '../api.config';
 import { ApiException } from '../api.exception';
 

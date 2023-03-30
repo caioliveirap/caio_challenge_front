@@ -6,6 +6,7 @@ import {
 } from 'react-router-dom';
 import { AssetDetail } from 'src/pages/Assets/AssetDetails';
 import { AssetList } from 'src/pages/Assets/AssetList';
+import { Workorder } from 'src/pages/Workorders';
 
 import { Home } from '../pages/Home';
 
@@ -31,6 +32,7 @@ export const ProjectRoutes = () => {
 				<Route path="/" element={<Home />}></Route>
 				<Route path="/ativos/:id" element={<AssetDetail />}></Route>
 				<Route path="/ativos" element={<AssetList />}></Route>
+				<Route path="/ordem-de-servico" element={<Workorder />}></Route>
 			</Routes>
 		</>
 	);
