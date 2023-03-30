@@ -1,0 +1,20 @@
+.units {
+	display: flex;
+	flex-direction: column;
+	gap: 16px;
+	.units__header {
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+		.title {
+			font-size: 24px;
+			margin: 0;
+		}
+		button {
+			display: flex;
+			align-items: center;
+			font-size: 16px;
+			gap: 4px;
+		}
+	}
+}

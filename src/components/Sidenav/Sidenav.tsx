@@ -32,6 +32,18 @@ export const Sidenav = ({ collapsed }: SidenavProps) => {
 			label: 'Ordens de serviço',
 			path: 'ordem-de-servico',
 		},
+		{
+			key: '/usuarios',
+			icon: <AiOutlineUser />,
+			label: 'Usuários',
+			path: 'usuarios',
+		},
+		{
+			key: '/unidades',
+			icon: <AiOutlineUser />,
+			label: 'Unidades',
+			path: 'unidades',
+		},
 	];
 	return (
 		<Sider trigger={null} collapsible collapsed={collapsed}>
