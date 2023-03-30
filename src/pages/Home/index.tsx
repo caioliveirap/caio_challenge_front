@@ -1,0 +1,28 @@
+import { Card } from 'antd';
+import { useQuery } from 'react-query';
+import { AssetsHealthComponent } from 'src/components/AssetsHealth/AssetsHealth';
+import { AssetsStatusComponent } from 'src/components/AssetsStatus/AssetsStatus';
+import { Loading } from 'src/components/LoadingComponent/Loading';
+import { getAllAssets } from 'src/services/assets/assets.service';
+
+import './home.scss';
+
+export const Home = () => {
+	const { isLoading, data } = useQuery('assetsData', async () => {
+		const result = await getAllAssets();
+		return result;
+	});
+
+	if (isLoading) return <Loading />;
+
+	return (
+		<div className="homepage">
+			<Card loading={isLoading}>
+				<AssetsHealthComponent assetsList={data} />
+			</Card>
+			<Card loading={isLoading}>
+				<AssetsStatusComponent assetsList={data} />
+			</Card>
+		</div>
+	);
+};

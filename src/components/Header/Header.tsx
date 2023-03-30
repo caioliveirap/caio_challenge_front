@@ -1,6 +1,6 @@
 import { Layout } from 'antd';
 import { AiOutlineMenuFold } from 'react-icons/ai';
-
+import './Header.scss';
 const { Header } = Layout;
 
 type HeaderProps = {
@@ -9,15 +9,8 @@ type HeaderProps = {
 
 export const HeaderComponent = ({ triggerCollapse }: HeaderProps) => {
 	return (
-		<Header
-			style={{
-				background: 'white',
-				padding: '16px',
-				lineHeight: 'initial',
-				display: 'flex',
-			}}
-		>
-			<AiOutlineMenuFold onClick={triggerCollapse} />
+		<Header className="header">
+			<AiOutlineMenuFold size={20} cursor="pointer" onClick={triggerCollapse} />
 		</Header>
 	);
 };

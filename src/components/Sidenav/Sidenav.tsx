@@ -1,7 +1,16 @@
 import { Layout, Menu } from 'antd';
-import { AiOutlineUser } from 'react-icons/ai';
+import {
+	AiOutlineBank,
+	AiOutlineLayout,
+	AiOutlineSetting,
+	AiOutlineUnorderedList,
+	AiOutlineUser,
+} from 'react-icons/ai';
+import { Link, useNavigate } from 'react-router-dom';
+
 import TractianLogo from '../../assets/tractian-logo.svg';
 import './Sidenav.scss';
+
 const { Sider } = Layout;
 
 type SidenavProps = {
@@ -9,11 +18,37 @@ type SidenavProps = {
 };
 
 export const Sidenav = ({ collapsed }: SidenavProps) => {
+	const navigate = useNavigate();
 	const sidenavItems = [
 		{
-			key: '1',
+			key: '/',
+			icon: <AiOutlineLayout />,
+			label: 'Dashboard',
+			path: '/',
+		},
+		{
+			key: '/ativos',
+			icon: <AiOutlineSetting />,
+			label: 'Ativos',
+			path: '/ativos',
+		},
+		{
+			key: '/ordem-de-servico',
+			icon: <AiOutlineUnorderedList />,
+			label: 'Ordens de serviço',
+			path: 'ordem-de-servico',
+		},
+		{
+			key: '/usuarios',
 			icon: <AiOutlineUser />,
-			label: 'User',
+			label: 'Usuários',
+			path: 'usuarios',
+		},
+		{
+			key: '/unidades',
+			icon: <AiOutlineBank />,
+			label: 'Unidades',
+			path: 'unidades',
 		},
 	];
 	return (
@@ -29,8 +64,10 @@ export const Sidenav = ({ collapsed }: SidenavProps) => {
 			<Menu
 				theme="dark"
 				mode="inline"
-				defaultSelectedKeys={['1']}
 				items={sidenavItems}
+				onClick={({ key }) => {
+					navigate(key);
+				}}
 			/>
 		</Sider>
 	);

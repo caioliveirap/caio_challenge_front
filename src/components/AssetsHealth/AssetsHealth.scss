@@ -1,0 +1,15 @@
+.assets-health {
+	display: flex;
+	flex-direction: column;
+	height: 100%;
+	width: 100%;
+	color: #212427;
+	gap: 16px;
+	.assets-health__title {
+		font-size: 20px;
+		font-weight: 500;
+	}
+	.assets-health__chart {
+		display: flex;
+	}
+}

@@ -1,16 +1,23 @@
-import { createBrowserRouter, RouterProvider } from 'react-router-dom';
+import { Route, Routes } from 'react-router-dom';
+import { AssetDetail } from 'src/pages/Assets/AssetDetails';
+import { AssetList } from 'src/pages/Assets/AssetList';
+import { Units } from 'src/pages/Units';
+import { Users } from 'src/pages/Users';
+import { Workorder } from 'src/pages/Workorders';
 
-const settedRoutes = createBrowserRouter([
-	{
-		path: '/',
-		element: <span>test</span>,
-	},
-]);
+import { Home } from '../pages/Home';
 
 export const ProjectRoutes = () => {
 	return (
 		<>
-			<RouterProvider router={settedRoutes} />
+			<Routes>
+				<Route path="/" element={<Home />}></Route>
+				<Route path="/ativos/:id" element={<AssetDetail />}></Route>
+				<Route path="/ativos" element={<AssetList />}></Route>
+				<Route path="/ordem-de-servico" element={<Workorder />}></Route>
+				<Route path="/unidades" element={<Units />}></Route>
+				<Route path="/usuarios" element={<Users />}></Route>
+			</Routes>
 		</>
 	);
 };
