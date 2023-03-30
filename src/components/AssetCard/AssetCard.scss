@@ -20,4 +20,23 @@
 			font-weight: 600;
 		}
 	}
+	.asset-card-specifications {
+		display: flex;
+		flex-direction: column;
+		gap: 4px;
+		.asset-card-specifications__title {
+			font-size: 14px;
+			font-weight: 500;
+		}
+		.asset-card-specifications__details {
+			display: flex;
+			align-items: center;
+			justify-content: space-between;
+			span {
+				display: flex;
+				align-items: center;
+				gap: 4px;
+			}
+		}
+	}
 }

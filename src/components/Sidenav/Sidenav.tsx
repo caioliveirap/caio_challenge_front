@@ -45,19 +45,6 @@ export const Sidenav = ({ collapsed }: SidenavProps) => {
 					navigate(key);
 				}}
 			/>
-
-			{/* <Menu theme="dark" mode="inline">
-				{sidenavItems.map((item) => {
-					return (
-						<Menu.Item>
-							{item.icon}
-							{item.label}
-
-							<Link className="sidenav-link" to={item.path}></Link>
-						</Menu.Item>
-					);
-				})}
-			</Menu> */}
 		</Sider>
 	);
 };
