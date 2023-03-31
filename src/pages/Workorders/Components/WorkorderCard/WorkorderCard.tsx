@@ -63,7 +63,9 @@ export const WorkorderCard = ({ workorderInfo, userList }: WorkorderProps) => {
 						<span className="order-number">#{workorder.id}</span>
 						<span className="title">{workorder.title}</span>
 					</div>
-					<span className="workorder-card__description">Testet</span>
+					<span className="workorder-card__description">
+						{workorder.description}
+					</span>
 					<div className="workorder-card__content">
 						<div className="progress">
 							Progresso
