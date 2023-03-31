@@ -1,13 +1,24 @@
 import { Avatar, Card, Progress, Tag, Tooltip } from 'antd';
 import { useState } from 'react';
+import { IUser } from 'src/services/users/users.service';
+import {
+	IChecklistItem,
+	IWorkOrder,
+} from 'src/services/workorders/workorders.service';
+import { getInitials } from 'src/utils';
 
 import './WorkorderCard.scss';
 
-export const WorkorderCard = ({ workorderInfo }: any) => {
+type WorkorderProps = {
+	workorderInfo: IWorkOrder;
+	userList: IUser[] | undefined;
+};
+
+export const WorkorderCard = ({ workorderInfo, userList }: WorkorderProps) => {
 	const [workorder, setWorkorder] = useState(workorderInfo);
-	const countCompletedTasks = (
-		tasks: { completed: boolean; task: string }[]
-	): number => {
+	const [userFilteredList, setUserList] = useState(workorderInfo);
+
+	const countCompletedTasks = (tasks: IChecklistItem[]): number => {
 		return Math.ceil(
 			(tasks.reduce(
 				(completedCount, task) =>
@@ -18,6 +29,23 @@ export const WorkorderCard = ({ workorderInfo }: any) => {
 				100
 		);
 	};
+
+	const checkUsers = (userlist: IUser[]): IUser[] => {
+		console.log(
+			workorder,
+			userlist.filter((user) => {
+				if (workorder.assignedUserIds.includes(user.id)) {
+					return user;
+				}
+			})
+		);
+		return userlist.filter((user) => {
+			if (workorder.assignedUserIds.includes(user.id)) {
+				return user;
+			}
+		});
+	};
+
 	const statusTags: any = {
 		high: <Tag color="red">Alta</Tag>,
 		medium: <Tag color="blue">Média</Tag>,
@@ -59,12 +87,17 @@ export const WorkorderCard = ({ workorderInfo }: any) => {
 						<div className="users">
 							Usuários
 							<Avatar.Group>
-								<Tooltip title="Ant User" placement="top">
-									<Avatar style={{ backgroundColor: '#87d068' }} icon={'K'} />
-								</Tooltip>
-								<Tooltip title="Ant User" placement="top">
-									<Avatar style={{ backgroundColor: '#87d068' }} icon={'K'} />
-								</Tooltip>
+								{userList &&
+									checkUsers(userList).map((item) => {
+										return (
+											<Tooltip title={item.name} placement="top">
+												<Avatar
+													style={{ backgroundColor: '#87d068' }}
+													icon={getInitials(item.name)}
+												/>
+											</Tooltip>
+										);
+									})}
 							</Avatar.Group>
 						</div>
 						<div className="priority">
