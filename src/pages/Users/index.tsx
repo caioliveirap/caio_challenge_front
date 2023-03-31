@@ -1,9 +1,10 @@
-import { Button, Modal, Table, message } from 'antd';
+import { Button, Modal, message } from 'antd';
 import { useState } from 'react';
 import { RiAddFill } from 'react-icons/ri';
 import { useQuery } from 'react-query';
 import { Loading } from 'src/components/LoadingComponent/Loading';
-import { UserFormComponent } from 'src/components/UserForm/UserForm';
+import { UserFormComponent } from 'src/pages/Users/Components/UserForm/UserForm';
+import UserTableComponent from 'src/pages/Users/Components/UsersTable/UserTable';
 import {
 	IUser,
 	NoticeType,
@@ -16,7 +17,6 @@ export const Users = () => {
 	const [isModalOpen, setIsModalOpen] = useState(false);
 	const [isEditModalOpen, setIsEditModalOpen] = useState(false);
 	const [messageApi, contextHolder] = message.useMessage();
-
 	const [userSelected, setUserSelected] = useState<IUser>();
 
 	const showModal = () => {
@@ -50,57 +50,13 @@ export const Users = () => {
 		});
 	};
 
-	const usersColumns = [
-		{
-			title: 'Usuário',
-			dataIndex: 'name',
-			key: 'name',
-		},
-		{
-			title: 'E-Mail',
-			dataIndex: 'email',
-			key: 'email',
-		},
-		{
-			title: 'ID da Unidade',
-			dataIndex: 'unitId',
-			key: 'unitId',
-		},
-		{
-			title: 'ID do Usuário',
-			dataIndex: 'companyId',
-			key: 'companyId',
-		},
-		{
-			title: 'ID da Empresa',
-			dataIndex: 'companyId',
-			key: 'companyId',
-		},
-		{
-			title: 'Edit',
-			dataIndex: 'companyId',
-			render: (text: any, record: any, index: any) => {
-				return (
-					<Button
-						type="primary"
-						onClick={() => {
-							setUserSelected(data?.[index]);
-							showEditModal();
-						}}
-					>
-						Editar
-					</Button>
-				);
-			},
-		},
-	];
-
 	const { isLoading, data } = useQuery('usersList', async () => {
 		const result = await getAllUsers();
 		return result;
 	});
 
 	if (isLoading) return <Loading />;
+
 	return (
 		<div className="users">
 			{contextHolder}
@@ -113,7 +69,11 @@ export const Users = () => {
 				</Button>
 			</div>
 
-			<Table dataSource={data} columns={usersColumns} />
+			<UserTableComponent
+				initialData={data}
+				showEditModal={showEditModal}
+				setUserSelected={setUserSelected}
+			/>
 
 			<Modal
 				title="Adicionar novo usuário"

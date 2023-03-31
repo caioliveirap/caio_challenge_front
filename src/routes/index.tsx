@@ -1,6 +1,6 @@
 import { Route, Routes } from 'react-router-dom';
-import { AssetDetail } from 'src/pages/Assets/AssetDetails';
-import { AssetList } from 'src/pages/Assets/AssetList';
+import { AssetDetail } from 'src/pages/Assets/Components/AssetDetails';
+import { AssetList } from 'src/pages/Assets/Components/AssetList';
 import { Units } from 'src/pages/Units';
 import { Users } from 'src/pages/Users';
 import { Workorder } from 'src/pages/Workorders';

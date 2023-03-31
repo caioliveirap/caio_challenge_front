@@ -1,6 +1,6 @@
 import { useQuery } from 'react-query';
 import { Loading } from 'src/components/LoadingComponent/Loading';
-import { WorkorderCard } from 'src/components/WorkorderCard/WorkorderCard';
+import { WorkorderCard } from 'src/pages/Workorders/Components/WorkorderCard/WorkorderCard';
 import { getAllUsers } from 'src/services/users/users.service';
 import { getAllWorkorders } from 'src/services/workorders/workorders.service';
 

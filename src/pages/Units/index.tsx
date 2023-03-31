@@ -1,10 +1,11 @@
-import { Button, Modal, Table, message } from 'antd';
+import { Button, Modal, message } from 'antd';
 import { NoticeType } from 'antd/es/message/interface';
 import { useState } from 'react';
 import { RiAddFill } from 'react-icons/ri';
 import { useQuery } from 'react-query';
 import { Loading } from 'src/components/LoadingComponent/Loading';
-import { UnitFormComponent } from 'src/components/UnitForms/UnitForm';
+import { UnitFormComponent } from 'src/pages/Units/Components/UnitForms/UnitForm';
+import UnitTableComponent from 'src/pages/Units/Components/UnitTable/UnitTable';
 import { IUnit, getAllUnits } from 'src/services/units/units.service';
 
 import './units.scss';
@@ -46,42 +47,6 @@ export const Units = () => {
 			content: message,
 		});
 	};
-
-	const unitsColumns = [
-		{
-			title: 'Unidade',
-			dataIndex: 'name',
-			key: 'name',
-		},
-		{
-			title: 'ID da Unidade',
-			dataIndex: 'id',
-			key: 'id',
-		},
-		{
-			title: 'ID da Empresa',
-			dataIndex: 'companyId',
-			key: 'companyId',
-		},
-		{
-			title: 'Edit',
-			dataIndex: 'companyId',
-			render: (text: any, record: any, index: any) => {
-				return (
-					<Button
-						type="primary"
-						onClick={() => {
-							setUserSelected(data?.[index]);
-							showEditModal();
-						}}
-					>
-						Editar
-					</Button>
-				);
-			},
-		},
-	];
-
 	const { isLoading, data } = useQuery('unitsList', async () => {
 		const result = await getAllUnits();
 		return result;
@@ -99,7 +64,12 @@ export const Units = () => {
 					Adicionar Unidade
 				</Button>
 			</div>
-			<Table dataSource={data} columns={unitsColumns} />
+			<UnitTableComponent
+				initialData={data}
+				showEditModal={showEditModal}
+				setUserSelected={setUserSelected}
+			/>
+
 			<Modal
 				title="Adicionar nova unidade"
 				open={isModalOpen}

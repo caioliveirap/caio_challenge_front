@@ -2,8 +2,8 @@ import { Button, Card } from 'antd';
 import { AiOutlineArrowLeft } from 'react-icons/ai';
 import { useQuery } from 'react-query';
 import { useNavigate, useParams } from 'react-router-dom';
-import { AssetInfoComponent } from 'src/components/AssetInfo/AssetInfo';
 import { Loading } from 'src/components/LoadingComponent/Loading';
+import { AssetInfoComponent } from 'src/pages/Assets/Components/AssetInfo/AssetInfo';
 import { getSingleAsset } from 'src/services/assets/assets.service';
 
 import '../ativos.scss';

@@ -1,6 +1,6 @@
 import { useQuery } from 'react-query';
-import { AssetCardComponent } from 'src/components/AssetCard/AssetCard';
 import { Loading } from 'src/components/LoadingComponent/Loading';
+import { AssetCardComponent } from 'src/pages/Assets/Components/AssetCard/AssetCard';
 import { getAllAssets } from 'src/services/assets/assets.service';
 
 import '../ativos.scss';
