@@ -10,10 +10,13 @@ import {
 	NoticeType,
 	getAllUsers,
 } from 'src/services/users/users.service';
+import { TabTitle } from 'src/utils';
 
 import './users.scss';
 
 export const Users = () => {
+	TabTitle('Usuários');
+
 	const [isModalOpen, setIsModalOpen] = useState(false);
 	const [isEditModalOpen, setIsEditModalOpen] = useState(false);
 	const [messageApi, contextHolder] = message.useMessage();

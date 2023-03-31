@@ -4,3 +4,7 @@ export const getInitials = (name: string): string => {
 	const lastNameInitial = names[names.length - 1].charAt(0);
 	return `${firstNameInitial}${lastNameInitial}`;
 };
+
+export const TabTitle = (title: string) => {
+	return (document.title = title + ' | Tractian');
+};

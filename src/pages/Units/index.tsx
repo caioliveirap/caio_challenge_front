@@ -7,10 +7,13 @@ import { Loading } from 'src/components/LoadingComponent/Loading';
 import { UnitFormComponent } from 'src/pages/Units/Components/UnitForms/UnitForm';
 import UnitTableComponent from 'src/pages/Units/Components/UnitTable/UnitTable';
 import { IUnit, getAllUnits } from 'src/services/units/units.service';
+import { TabTitle } from 'src/utils';
 
 import './units.scss';
 
 export const Units = () => {
+	TabTitle('Unidades');
+
 	const [isModalOpen, setIsModalOpen] = useState(false);
 	const [isEditModalOpen, setIsEditModalOpen] = useState(false);
 	const [messageApi, contextHolder] = message.useMessage();

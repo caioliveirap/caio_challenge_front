@@ -2,10 +2,13 @@ import { useQuery } from 'react-query';
 import { Loading } from 'src/components/LoadingComponent/Loading';
 import { AssetCardComponent } from 'src/pages/Assets/Components/AssetCard/AssetCard';
 import { getAllAssets } from 'src/services/assets/assets.service';
+import { TabTitle } from 'src/utils';
 
 import '../ativos.scss';
 
 export const AssetList = () => {
+	TabTitle('Ativos');
+
 	const { isLoading, data } = useQuery('assetsData', async () => {
 		const result = await getAllAssets();
 		return result;
