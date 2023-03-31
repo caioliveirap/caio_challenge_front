@@ -5,11 +5,11 @@ O desafio consiste na criação de uma dashboard de gestão de ativos, onde é p
 <p>
   <img src="https://img.shields.io/github/languages/top/caioliveirap/caio_challenge_front">
   <img src="https://img.shields.io/github/last-commit/caioliveirap/caio_challenge_front">
-  <img src="https://img.shields.io/github/pr/caioliveirap/caio_challenge_front">
+  <img src="https://img.shields.io/github/issues-pr-closed/caioliveirap/caio_challenge_front">
   <img src="https://img.shields.io/github/stars/caioliveirap/caio_challenge_front">
 </p>
 
-## Tech Stack
+## 🧑‍💻👩‍💻 Tech Stack
 
 - Ant design
 - React
@@ -23,11 +23,11 @@ O desafio consiste na criação de uma dashboard de gestão de ativos, onde é p
 - Vite
 - Axios
 
-## Acesso
+## 😁 Acesso
 
 Você pode acessar o projeto [aqui](https://caio-tractian-challenge.netlify.app/), ou pelo link na descrição
 
-## Pré-requisitos
+## 💻 Pré-requisitos
 
 Para acessar o projeto, é necessário ter instalado na máquina o Node.JS e algum compilador como VsCode
 
@@ -51,6 +51,6 @@ $ http://localhost:3000/
 $ yarn cypress
 ```
 
-## Autor
+## 🙍‍♂️ Autor
 
 Caio de Oliveira Pinto | Me siga no [LinkedIn](https://www.linkedin.com/in/caio-de-oliveira-pinto-cop/)
