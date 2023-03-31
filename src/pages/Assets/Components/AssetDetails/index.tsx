@@ -7,6 +7,7 @@ import { AssetInfoComponent } from 'src/pages/Assets/Components/AssetInfo/AssetI
 import { getSingleAsset } from 'src/services/assets/assets.service';
 import { TabTitle } from 'src/utils';
 
+import { AssetTimelineComponent } from '../AssetTimeline/AssetTimeline';
 import '../ativos.scss';
 
 export const AssetDetail = () => {
@@ -21,7 +22,7 @@ export const AssetDetail = () => {
 	});
 
 	if (isLoading) return <Loading />;
-
+	console.log(data);
 	return (
 		<div className="asset-details">
 			<Button
@@ -35,6 +36,9 @@ export const AssetDetail = () => {
 			</Button>
 			<Card loading={isLoading} bodyStyle={{ padding: '0' }}>
 				<AssetInfoComponent assetInformation={data} />
+			</Card>
+			<Card loading={isLoading} bodyStyle={{ padding: '0' }}>
+				<AssetTimelineComponent assetInformation={data} />
 			</Card>
 		</div>
 	);

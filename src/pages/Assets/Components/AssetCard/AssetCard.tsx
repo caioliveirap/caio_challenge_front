@@ -21,7 +21,7 @@ export const AssetCardComponent = ({ assetInfo }: AssetCardProps) => {
 		inDowntime: <Tag color="blue">Em manutenação</Tag>,
 		inOperation: <Tag color="green">Em operação</Tag>,
 	};
-	console.log(asset);
+
 	return (
 		<div className="asset-card__container">
 			<Card
