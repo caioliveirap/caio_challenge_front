@@ -1,13 +1,16 @@
 import { Card } from 'antd';
 import { useQuery } from 'react-query';
-import { AssetsHealthComponent } from 'src/components/AssetsHealth/AssetsHealth';
-import { AssetsStatusComponent } from 'src/components/AssetsStatus/AssetsStatus';
 import { Loading } from 'src/components/LoadingComponent/Loading';
+import { AssetsHealthComponent } from 'src/pages/Assets/Components/AssetsHealth/AssetsHealth';
+import { AssetsStatusComponent } from 'src/pages/Assets/Components/AssetsStatus/AssetsStatus';
 import { getAllAssets } from 'src/services/assets/assets.service';
+import { TabTitle } from 'src/utils';
 
 import './home.scss';
 
 export const Home = () => {
+	TabTitle('Dashboard');
+
 	const { isLoading, data } = useQuery('assetsData', async () => {
 		const result = await getAllAssets();
 		return result;

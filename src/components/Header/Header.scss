@@ -5,4 +5,15 @@
 	line-height: initial;
 	align-items: center;
 	border: 1px solid #f0f0f0;
+	text-align: center;
+	.header__company {
+		display: flex;
+		width: 100%;
+		justify-content: center;
+		align-items: center;
+		.header__title {
+			font-size: 24px;
+			font-weight: 600;
+		}
+	}
 }

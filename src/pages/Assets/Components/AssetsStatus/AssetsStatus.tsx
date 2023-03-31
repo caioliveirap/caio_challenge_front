@@ -2,7 +2,7 @@ import Highcharts from 'highcharts';
 import HighchartsReact from 'highcharts-react-official';
 import { useState } from 'react';
 
-import { IAssets } from '../../services/assets/assets.service';
+import { IAssets } from '../../../../services/assets/assets.service';
 import './AssetsStatus.scss';
 
 type AssetsStatusProps = {

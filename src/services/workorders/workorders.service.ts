@@ -2,35 +2,23 @@
 import api from '../api.config';
 import { ApiException } from '../api.exception';
 
-// export interface IAssets {
-// 	assignedUserIds: number[];
-// 	companyId: number;
-// 	healthHistory: any;
-// 	healthscore: number;
-// 	id: number;
-// 	image: string;
-// 	metrics: IMetrics;
-// 	model: string;
-// 	name: string;
-// 	sensors: string[];
-// 	specifications: ISpecifications;
-// 	status: string;
-// 	unitId: number;
-// }
+export type IChecklistItem = {
+	completed: boolean;
+	task: string;
+};
 
-// export interface IMetrics {
-// 	lastUptimeAt: string;
-// 	totalCollectsUptime: number;
-// 	totalUptime: number;
-// }
+export type IWorkOrder = {
+	assetId: number;
+	assignedUserIds: number[];
+	checklist: IChecklistItem[];
+	description: string;
+	id: number;
+	priority: string;
+	status: string;
+	title: string;
+};
 
-// export interface ISpecifications {
-// 	maxTemp: number;
-// 	power?: number;
-// 	rpm?: number;
-// }
-
-export const getAllWorkorders = async (): Promise<any[]> => {
+export const getAllWorkorders = async (): Promise<IWorkOrder[]> => {
 	try {
 		const requests = await api.get('/workorders');
 		return requests.data;
@@ -39,7 +27,9 @@ export const getAllWorkorders = async (): Promise<any[]> => {
 	}
 };
 
-export const getSingleWorkorder = async (assetId: number): Promise<any> => {
+export const getSingleWorkorder = async (
+	assetId: number
+): Promise<IWorkOrder> => {
 	try {
 		const requests = await api.get(`/workorders/${assetId}`);
 		return requests.data;
